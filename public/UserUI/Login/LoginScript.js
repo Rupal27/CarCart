@@ -4,20 +4,20 @@ $('#login').click(()=>{
     loginuser.password=$('#password').val();
 
       
-   $.post('http://localhost:1156/api/users/login/',loginuser,
+   $.post('http://localhost:1212/api/users/login/',loginuser,
    (data)=>{
    if(data.success){
-      alert('you are logged in');
+      alert('You have successfully logged in');
       localStorage.setItem('useremail',data.data.email)
       localStorage.setItem('userid',data.data.id)
 
-      if(data.data.email==="rishav@admin.com")
+      if(data.data.email==="admin@gmail.com")
       {
-       window.location = "http://localhost:1156/VendorUI/Vendor.html";
+       window.location = "http://localhost:1212/VendorUI/Vendor.html";
 
       }else
       {
-       window.location = "http://localhost:1156/ProductUI/loginedHomePage/Product.html";
+       window.location = "http://localhost:1212/ProductUI/loginedHomePage/Product.html";
 
       }
    }

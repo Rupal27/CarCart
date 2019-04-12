@@ -2,7 +2,7 @@
 
 function refreshList() {
    
-    $.get('http://localhost:1156/api/products/', (data) => {
+    $.get('http://localhost:1212/api/products/', (data) => {
       $('#productList').empty()
    if(data.success)
    {
@@ -38,14 +38,14 @@ function refreshList() {
   function addToCart(productId)
   {
     
-    let path='http://localhost:1156/api/carts';
+    let path='http://localhost:1212/api/carts';
     
     let userId=localStorage['userid'];
     let txtBox='#qty'+productId
     quantity=$(txtBox).val();
     if(userId===undefined)
     {
-      console.log('user not logined');
+      console.log('User has not logged in yet  ');
     }
     else
     {
@@ -60,11 +60,11 @@ function refreshList() {
        
         if(data.success)
         {         
-          alert('added successfully')
+          alert('Successfully added ')
         }
         else
         {
-          alert('some errors..');
+          alert('OOps! Error ');
         }
       })
     }
@@ -75,7 +75,7 @@ function refreshList() {
      
      alert('you are going to log out')
      localStorage.setItem('userid',null);
-     window.location='http://localhost:1156/';
+     window.location='http://localhost:1212/';
    })
 
 

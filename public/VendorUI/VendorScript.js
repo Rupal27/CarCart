@@ -1,20 +1,20 @@
     function refreshList() {
-      $.get('http://localhost:1156/api/vendors/', (data) => {
+      $.get('http://localhost:1212/api/vendors/', (data) => {
         $('#vendorList').empty()
      if(data.success)
      {
         for (let vendor of data.data) {
             $('#vendorList').append(
 
-        `<li class="list-group-item  d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">${vendor.name}</h6>
+        // `<li class="list-group-item  d-flex justify-content-between lh-condensed">
+        //   <div>
+        //     <h6 class="my-0">${vendor.name}</h6>
            
-          </div>
-          <span class="text-muted"><button onclick="deleteThisVendor(${vendor.id})">X</button></span>
-        </li>`
+        //   </div>
+        //   <span class="text-muted"><button onclick="deleteThisVendor(${vendor.id})">X</button></span>
+        // </li>`
 
-              // `<li>VendorName :  ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
+               `<li>VendorName :  ${vendor.name}   <button onclick="deleteThisVendor(${vendor.id})">X</button></li>`
             )
           }
      }
@@ -27,13 +27,13 @@
     refreshList()
     function deleteThisVendor(id)
     {
-      let path='http://localhost:1156/api/vendors/'+id;
+      let path='http://localhost:1212/api/vendors/'+id;
       $.ajax({
         url: path,
         type: 'DELETE',
         success: (data) => {
           if (data.success) {
-            alert('deleted successfully')
+            alert('Successfully Deleted')
             refreshList()
           } else {
             alert(data.message)
@@ -46,7 +46,7 @@
   
     $('#addVendorButton').click(() => {
       $.post(
-        'http://localhost:1156/api/vendors/',
+        'http://localhost:1212/api/vendors/',
         {
           name: $('#vendorName').val()
         },
@@ -63,7 +63,7 @@
   
     $('#logOut').click(()=>{
      
-      alert('you are going to log out')
+      alert('Logging out now')
       localStorage.setItem('userid',null);
-      window.location='http://localhost:1156/';
+      window.location='http://localhost:1212/';
     })
