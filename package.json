@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "node assignment",
   "main": "Config/server.js",
-  "start":"node Config/server.js" ,
+  "scripts":{
+  "start":"node Config/server.js" 
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
